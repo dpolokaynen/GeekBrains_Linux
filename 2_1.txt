@@ -1,0 +1,31 @@
+1. Навигация по файловой системе. Попрактиковаться в перемещении между 
+каталогами, используя полный и относительный путь. Перечислить, какие 
+параметры команды cd позволят быстро вернуться в домашний каталог, 
+позволят перейти на уровень выше.
+
+Решение:
+
+daniil@daniil-VirtualBox:~$ ls
+ file1.txt   Документы     Музыка          Шаблоны
+ lesson2     Загрузки      Общедоступные
+ Видео       Изображения  'Рабочий стол'
+# Относительный путь
+daniil@daniil-VirtualBox:~$ cd Шаблоны
+daniil@daniil-VirtualBox:~/Шаблоны$ cd
+daniil@daniil-VirtualBox:~$ pwd
+/home/daniil
+# Полный путь
+daniil@daniil-VirtualBox:~$ cd /home/daniil/Видео
+# Переход на уровень выше
+daniil@daniil-VirtualBox:~/Видео$ cd ..
+daniil@daniil-VirtualBox:~$ pwd
+/home/daniil
+# Возврат в домашний каталог
+daniil@daniil-VirtualBox:~$ cd Музыка
+daniil@daniil-VirtualBox:~/Музыка$ cd
+daniil@daniil-VirtualBox:~$ pwd
+/home/daniil
+daniil@daniil-VirtualBox:~$
+
+
+

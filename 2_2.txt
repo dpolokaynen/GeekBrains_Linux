@@ -1,0 +1,56 @@
+2. Управление файлами и каталогами и текстовые редакторы. Создать файл
+с наполнением, используя несколько способов. Использовать разобранные
+текстовые редакторы для наполнения файлов данными. Создать копии 
+созданных файлов, создать несколько каталогов с подкаталогами, перенести
+несколько файлов в созданные каталоги. Перечислить команды и используемые
+параметры команд.
+
+Решение:
+
+#Создадим 2 файла
+daniil@daniil-VirtualBox:~$ touch test1.txt
+daniil@daniil-VirtualBox:~$ ls
+ file1.txt   Видео       Изображения    'Рабочий стол'
+ lesson2     Документы   Музыка          Шаблоны
+ test1.txt   Загрузки    Общедоступные
+daniil@daniil-VirtualBox:~$ cp test1.txt test2.txt
+daniil@daniil-VirtualBox:~$ ls
+ file1.txt   test2.txt   Загрузки      Общедоступные
+ lesson2     Видео       Изображения  'Рабочий стол'
+ test1.txt   Документы   Музыка        Шаблоны
+# Отредактируем файлы
+daniil@daniil-VirtualBox:~$ vim test1.txt
+daniil@daniil-VirtualBox:~$ cat test1.txt
+Hello, world
+It is my first use of vim
+daniil@daniil-VirtualBox:~$ nano test2.txt
+daniil@daniil-VirtualBox:~$ daniil@daniil-VirtualBox:~$ cat test_
+c: команда не найдена
+daniil@daniil-VirtualBox:~$ cat test2.txt
+Hello, nano
+Your interface is more friendly than vim
+# Создадим католог и внутри него еще 2 каталога
+daniil@daniil-VirtualBox:~$ mkdir catalog1
+daniil@daniil-VirtualBox:~$ ls
+ catalog1    test1.txt   Документы     Музыка          Шаблоны
+ file1.txt   test2.txt   Загрузки      Общедоступные
+ lesson2     Видео       Изображения  'Рабочий стол'
+daniil@daniil-VirtualBox:~/catalog1$ mkdir branch_1
+# При перемещении каталога используем параметр -r
+daniil@daniil-VirtualBox:~/catalog1$ cp -r branch_1 branch_2
+daniil@daniil-VirtualBox:~$ cd catalog1
+daniil@daniil-VirtualBox:~/catalog1$ ls
+branch_1  branch_2
+# Переместим файлы в подкаталоги
+daniil@daniil-VirtualBox:~$ mv /home/daniil/test2.txt /home/daniil/
+catalog1/branch_2
+daniil@daniil-VirtualBox:~$ mv /home/daniil/test1.txt /home/daniil/
+catalog1/branch_1
+daniil@daniil-VirtualBox:~$ cd /home/daniil/catalog1/branch_1
+daniil@daniil-VirtualBox:~/catalog1/branch_1$ ls
+test1.txt
+daniil@daniil-VirtualBox:~/catalog1/branch_1$ cd /home/daniil/
+catalog1/branch_2
+daniil@daniil-VirtualBox:~/catalog1/branch_2$ ls
+test2.txt
+daniil@daniil-VirtualBox:~/catalog1/branch_2$
