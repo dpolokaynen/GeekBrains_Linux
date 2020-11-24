@@ -1,0 +1,36 @@
+1. Управление пользователями:
+a) создать пользователя, используя утилиту useradd;
+b) удалить пользователя, используя утилиту userdel;
+c) создать пользователя в ручном режиме.-> 
+-> создать пользователя с помощью adduser
+
+a)
+daniil@daniil-VirtualBox:~$ sudo useradd -m -s /bin/bash user1
+daniil@daniil-VirtualBox:~$ cat /etc/passwd
+user1:x:1001:1001::/home/user1:/bin/bash
+
+b)
+daniil@daniil-VirtualBox:~$ sudo userdel user1
+daniil@daniil-VirtualBox:~$ cat /etc/passwd
+#Пользователь user1 отсутствует 
+
+c)
+daniil@daniil-VirtualBox:~$ sudo adduser user2
+Добавляется пользователь «user2» ...
+Добавляется новая группа «user2» (1001) ...
+Добавляется новый пользователь «user2» (1001) в группу «user2» ...
+Создаётся домашний каталог «/home/user2» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль :
+Повторите ввод нового пароля :
+passwd: пароль успешно обновлён
+Изменение информации о пользователе user2
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+        Полное имя []:
+        Номер комнаты []:
+        Рабочий телефон []:
+        Домашний телефон []:
+        Другое []:
+Данная информация корректна? [Y/n] Y
+daniil@daniil-VirtualBox:~$ cat /etc/passwd
+user2:x:1001:1001:,,,:/home/user2:/bin/bash
