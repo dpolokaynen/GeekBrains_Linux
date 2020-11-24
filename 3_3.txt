@@ -1,0 +1,16 @@
+3. Создать пользователя с правами суперпользователя. Сделать так,
+чтобы sudo не требовал пароль для выполнения команд.
+
+# Создадим пользователя super_user, дадим ему права через 
+sudoedit /etc/sudoers
+
+daniil@daniil-VirtualBox:~$ sudo adduser super_user
+daniil@daniil-VirtualBox:~$ sudoedit /etc/sudoers
+# Добавили польльзвателя в User privilege specification 
+(деталзиация в скриншоте)
+# Сменили пользователя и вошли выполнили команду 
+sudo cat /etc/sudoers без запроса пароля
+
+daniil@daniil-VirtualBox:~$ su - super_user
+Пароль:
+super_user@daniil-VirtualBox:~$ sudo cat /etc/sudoers

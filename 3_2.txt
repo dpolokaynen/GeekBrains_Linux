@@ -1,0 +1,34 @@
+2. Управление группами:
+a) создать группу с использованием утилит и в ручном режиме;
+b) попрактиковаться в смене групп у пользователей;
+c) добавить пользователя в группу, не меняя основной;
+d) удалить пользователя из группы.
+
+а)
+daniil@daniil-VirtualBox:~$ sudo groupadd group1
+daniil@daniil-VirtualBox:~$ cat /etc/group
+group1:x:1002:
+daniil@daniil-VirtualBox:~$ sudo addgroup group2
+Добавляется группа «group2» (GID 1003) ...
+Готово.
+daniil@daniil-VirtualBox:~$ cat /etc/group
+group2:x:1003:	
+
+b) 
+daniil@daniil-VirtualBox:~$ sudo usermod -a group1 user2
+daniil@daniil-VirtualBox:~$ cat /etc/group
+group1:x:1002:user2
+
+
+c)
+daniil@daniil-VirtualBox:~$ sudo usermod -aG group2 user2
+daniil@daniil-VirtualBox:~$ cat /etc/group
+group1:x:1002:user2
+group2:x:1003:user2
+
+d)
+# Удалили из группы group1
+daniil@daniil-VirtualBox:~$ sudo usermod -G group2 user2
+daniil@daniil-VirtualBox:~$ cat /etc/group
+group1:x:1002:
+group2:x:1003:user2
