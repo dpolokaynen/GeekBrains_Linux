@@ -1,0 +1,11 @@
+1. Потоки ввода/вывода. Создать файл, используя команду echo. 
+Используя команду cat, прочитать содержимое каталога etc, 
+ошибки перенаправить в отдельный файл.
+
+daniil@daniil-VirtualBox:~$ echo 'task_4_1' > file_4_1.txt
+daniil@daniil-VirtualBox:~$ cat file_4_1.txt
+task_4_1
+daniil@daniil-VirtualBox:~$ cat /etc/* 2> errors.log
+daniil@daniil-VirtualBox:~$ cat errors.log
+cat: /etc/acpi: Это каталог
+cat: /etc/alsa: Это каталог

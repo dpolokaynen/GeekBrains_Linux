@@ -1,0 +1,7 @@
+4. Сигналы процессам. Запустите mc. Используя ps, найдите PID процесса, 
+завершите процесс, передав ему сигнал 9.
+
+daniil@daniil-VirtualBox:~$ mc
+daniil@daniil-VirtualBox:~$ ps -ef
+daniil      2323    2315  0 17:58 pts/0    00:00:00 mc
+daniil@daniil-VirtualBox:~$ kill -9 2323Убито
