@@ -1,0 +1,48 @@
+3. Управление процессами. Изменить конфигурационный файл 
+службы SSH: /etc/ssh/sshd_config, отключив аутентификацию по 
+паролю PasswordAuthentication no. Выполните рестарт службы 
+systemctl restart sshd (service sshd restart), верните аутентификацию
+по паролю, выполните reload службы systemctl reload sshd
+(services sshd reload). В чём различие между действиями 
+restart и reload? Создайте файл при помощи команды
+cat > file_name, напишите текст и завершите комбинацией
+ctrl+d. Какой сигнал передадим процессу?
+
+# Начальное состояние
+
+daniil@daniil-VirtualBox:~$ ps -ef | grep sshd
+daniil@daniil-VirtualBox:~$ ps -ef | grep sshd
+root         549       1  0 17:08 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+root         676     549  0 17:08 ?        00:00:00 sshd: daniil [priv]
+daniil       842     676  0 17:09 ?        00:00:00 sshd: daniil@pts/1
+root        2093     843  0 17:35 pts/1    00:00:00 sudo nano /etc/ssh/sshd_config
+root        2095    2093  0 17:35 pts/1    00:00:00 nano /etc/ssh/sshd_config
+daniil      2104     843  0 17:39 pts/1    00:00:00 grep --color=
+
+# Сделаем restart. Идентификатор поменялся с 549 на 2117
+
+daniil@daniil-VirtualBox:~$ sudo systemctl restart sshd
+daniil@daniil-VirtualBox:~$ ps -ef | grep sshd
+root         676       1  0 17:08 ?        00:00:00 sshd: daniil [priv]
+daniil       842     676  0 17:09 ?        00:00:00 sshd: daniil@pts/1
+root        2093     843  0 17:35 pts/1    00:00:00 sudo nano /etc/ssh/sshd_config
+root        2095    2093  0 17:35 pts/1    00:00:00 nano /etc/ssh/sshd_config
+root        2117       1  0 17:39 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+daniil      2127     843  0 17:39 pts/1    00:00:00 grep --color=auto sshd
+
+# При reload идентификатор не поменялся. Остался 2117
+
+daniil@daniil-VirtualBox:~$ sudo systemctl reload sshd
+daniil@daniil-VirtualBox:~$ ps -ef | grep sshd
+root         676       1  0 17:08 ?        00:00:00 sshd: daniil [priv]
+daniil       842     676  0 17:09 ?        00:00:00 sshd: daniil@pts/1
+root        2093     843  0 17:35 pts/1    00:00:00 sudo nano /etc/ssh/sshd_config
+root        2095    2093  0 17:35 pts/1    00:00:00 nano /etc/ssh/sshd_config
+root        2117       1  0 17:39 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+daniil      2150     843  0 17:46 pts/1    00:00:00 grep --color=auto sshd
+
+# Создадим файл, завершим ввод макросом ctrl+d
+
+daniil@daniil-VirtualBox:~$ cat > task_4_3.txt
+Press ctrl + d in the end
+daniil@daniil-VirtualBox:~$
