@@ -1,0 +1,27 @@
+2. Дать созданным файлам другие, произвольные имена. Создать новую
+символическую ссылку. Переместить ссылки в другую директорию.
+
+daniil@daniil-VirtualBox:~$ mv file2.txt newfile2.txt
+daniil@daniil-VirtualBox:~$ mv file4.txt newfile4.txt
+daniil@daniil-VirtualBox:~$ ln -s newfile2.txt file5.txt
+daniil@daniil-VirtualBox:~$ ls -lia
+263141 -rw-rw-r--  1 daniil daniil   24 ноя 30 21:06  newfile2.txt
+304681 -rw-rw-r--  1 daniil daniil   24 ноя 30 21:03  newfile4.txt
+304718 lrwxrwxrwx  1 daniil daniil   12 ноя 30 21:39  file5.txt -> newfile2.txt
+# Переместим файлы в директорию task_5_2, ссылки в task_5_2_links
+
+daniil@daniil-VirtualBox:~$ mv /home/daniil/newfile4.txt /home/daniil/
+task_5_2
+daniil@daniil-VirtualBox:~$ mv /home/daniil/newfile2.txt /home/daniil/
+task_5_2
+daniil@daniil-VirtualBox:~$ mkdir task_5_2_links
+daniil@daniil-VirtualBox:~$ mv /home/daniil/file5.txt /home/daniil/
+task_5_2_links
+
+#Символическая ссылка перестала работать при перемещении в другой каталог
+daniil@daniil-VirtualBox:~$ cd task_5_2_links
+daniil@daniil-VirtualBox:~/task_5_2_links$ ls
+file5.txt
+daniil@daniil-VirtualBox:~/task_5_2_links$ cat fil5.txt
+cat: fil5.txt: Нет такого файла или каталога
+daniil@daniil-VirtualBox:~/task_5_2_links$
