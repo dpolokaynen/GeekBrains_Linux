@@ -1,0 +1,41 @@
+3. Создать два произвольных файла. Первому присвоить права на чтение и 
+запись для владельца и группы, только на чтение — для всех. Второму 
+присвоить права на чтение и запись только для владельца. Сделать это в 
+численном и символьном виде.
+
+daniil@daniil-VirtualBox:~$ touch random_file.txt
+daniil@daniil-VirtualBox:~$ touch random_file_2.txt
+daniil@daniil-VirtualBox:~$ ls -la
+-rw-rw-r--  1 daniil daniil    0 ноя 30 21:48  random_file_2.txt
+-rw-rw-r--  1 daniil daniil    0 ноя 30 21:48  random_file.txt
+
+#Меняем права доступа в симавольном виде.
+#Cначала лишим всех прав первый файл, чтобы потом дать права
+согласно условию
+daniil@daniil-VirtualBox:~$ chmod ugo-rxw random_file.txt
+daniil@daniil-VirtualBox:~$ ls -la
+----------  1 daniil daniil    0 ноя 30 21:48  random_file.txt
+daniil@daniil-VirtualBox:~$ chmod ug+rw random_file.txt
+daniil@daniil-VirtualBox:~$ chmod o+r random_file.txt
+daniil@daniil-VirtualBox:~$ ls -la
+-rw-rw-r--  1 daniil daniil    0 ноя 30 21:48  random_file.txt
+#Поменяем права 2 файла
+daniil@daniil-VirtualBox:~$ chmod ugo-rxw random_file_2.txt
+daniil@daniil-VirtualBox:~$ chmod u+rw random_file_2.txt
+daniil@daniil-VirtualBox:~$ ls -la
+-rw-------  1 daniil daniil    0 ноя 30 21:48  random_file_2.txt
+
+#Меняем права в численном виде
+#Лишим всех прав оба файла
+daniil@daniil-VirtualBox:~$ chmod 0 random_file.txt
+daniil@daniil-VirtualBox:~$ chmod 000 random_file_2.txt
+daniil@daniil-VirtualBox:~$ ls -la
+----------  1 daniil daniil    0 ноя 30 21:48  random_file_2.txt
+----------  1 daniil daniil    0 ноя 30 21:48  random_file.txt
+#Поменяем права согласно условию
+daniil@daniil-VirtualBox:~$ chmod 664 random_file.txt
+daniil@daniil-VirtualBox:~$ chmod 600 random_file_2.txt
+daniil@daniil-VirtualBox:~$ ls -la
+-rw-------  1 daniil daniil    0 ноя 30 21:48  random_file_2.txt
+-rw-rw-r--  1 daniil daniil    0 ноя 30 21:48  random_file.txt
+

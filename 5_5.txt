@@ -1,0 +1,22 @@
+5. * Создать группу developer и нескольких пользователей, входящих в неё. 
+Создать директорию для совместной работы. Сделать так, чтобы созданные 
+одними пользователями файлы могли изменять другие пользователи этой группы.
+
+#Создадим группу, пользователей и директорию
+daniil@daniil-VirtualBox:~$ sudo groupadd developer
+daniil@daniil-VirtualBox:~$ sudo adduser user_1
+daniil@daniil-VirtualBox:~$ sudo adduser user_2
+daniil@daniil-VirtualBox:~$ mkdir project
+daniil@daniil-VirtualBox:~$ ls
+ catalog1            random_file.txt   Изображения
+ errors.log          task_4_3.txt      Музыка
+ file3.txt           task_5_2          Общедоступные
+ file_4_1.txt        task_5_2_links   'Рабочий стол'
+ lesson2             Видео             Шаблоны
+ project             Документы
+ random_file_2.txt   Загрузки
+daniil@daniil-VirtualBox:~$
+
+#Поменяем права каталога
+daniil@daniil-VirtualBox:~$ sudo chmod g+s project
+drwxrwsr-x 2 daniil daniil 4096 ноя 30 22:30  project

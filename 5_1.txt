@@ -1,0 +1,32 @@
+1. Создать файл file1 и наполнить его произвольным содержимым. Скопировать
+его в file2. Создать символическую ссылку file3 на file1. Создать жёсткую
+ссылку file4 на file1. Посмотреть, какие inode у файлов. Удалить file1.
+Что стало с остальными созданными файлами? Попробовать вывести их на экран.
+
+daniil@daniil-VirtualBox:~$ echo Start task for lesson 5 > file1.txt
+daniil@daniil-VirtualBox:~$ cat file1.txt
+Start task for lesson 5
+daniil@daniil-VirtualBox:~$ cp file1.txt file2.txt
+daniil@daniil-VirtualBox:~$ ln -s file1.txt file3.txt
+daniil@daniil-VirtualBox:~$ ln file1.txt file4.txt
+# Смотрим incode. У файла 1 и 3 разные inode, потому что ссылка симвоическая.
+У файла 4 и 1 - одинаковые, потому что ссылка жеская
+daniil@daniil-VirtualBox:~$ ls -lia
+304681 -rw-rw-r--  2 daniil daniil   24 ноя 30 21:03  file1.txt
+263141 -rw-rw-r--  1 daniil daniil   24 ноя 30 21:06  file2.txt
+304702 lrwxrwxrwx  1 daniil daniil    9 ноя 30 21:08  file3.txt -> file1.txt
+304681 -rw-rw-r--  2 daniil daniil   24 ноя 30 21:03  file4.txt
+
+daniil@daniil-VirtualBox:~$ rm file1.txt
+daniil@daniil-VirtualBox:~$ ls -lia
+263141 -rw-rw-r--  1 daniil daniil   24 ноя 30 21:06  file2.txt
+304702 lrwxrwxrwx  1 daniil daniil    9 ноя 30 21:08  file3.txt -> file1.txt
+304681 -rw-rw-r--  1 daniil daniil   24 ноя 30 21:03  file4.txt
+# После удаления ссылка на файл 3 перестала работать, файл 2 и 4 остались
+без изменения 
+daniil@daniil-VirtualBox:~$ cat file2.txt
+Start task for lesson 5
+daniil@daniil-VirtualBox:~$ cat file3.txt
+cat: file3.txt: Нет такого файла или каталога
+daniil@daniil-VirtualBox:~$ cat file4.txt
+Start task for lesson 5
