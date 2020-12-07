@@ -1,0 +1,14 @@
+3. * Использовать команду AWK на вывод длинного списка каталога, чтобы 
+отобразить только права доступа к файлам. Затем отправить в конвейере 
+этот вывод на sort и uniq, чтобы отфильтровать все повторяющиеся строки.
+
+daniil@daniil-VirtualBox:~$ ls -l | awk '{print $1}' | sort | uni
+q
+drwxrwsr-x
+drwxrwxr-x
+drwxr-xr-x
+lrwxrwxrwx
+-rw-------
+-rw-rw-r--
+-rwxrwxr-x
+итого
