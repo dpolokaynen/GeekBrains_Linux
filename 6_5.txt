@@ -1,0 +1,7 @@
+5. Создать разовое задание на перезагрузку операционной системы, используя at.
+
+daniil@daniil-VirtualBox:~$ sudo reboot | at 9:11pm 12/07/2020
+warning: commands will be executed using /bin/sh
+job 1 at Mon Dec  7 21:11:00 2020
+daniil@daniil-VirtualBox:~$ Connection to localhost closed by remote host.
+Connection to localhost closed.

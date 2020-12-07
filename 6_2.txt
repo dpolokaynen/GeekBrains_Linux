@@ -1,0 +1,22 @@
+2. Создать однострочный скрипт, который создаст директории для нескольких 
+годов (2010–2017), в них — поддиректории для месяцев (от 01 до 12), и в
+каждый из них запишет несколько файлов с произвольными записями. 
+Например, 001.txt, содержащий текст «Файл 001», 002.txt с текстом 
+«Файл 002» и т. д.
+
+##Создадим скрипт
+daniil@daniil-VirtualBox:~$ cat -> task_6_2.sh
+#!/bin/bash
+for year in {2010..2017}
+do
+        mkdir $year
+        for month in {01..12}
+        do
+                mkdir $year/$month
+                for file in {01..07}
+                do
+                        echo Файл $file_number > $year/$month/$file_number.txt
+                done
+        done
+done^C
+daniil@daniil-VirtualBox:~$

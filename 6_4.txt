@@ -1,0 +1,9 @@
+4. Используя grep, проанализировать файл /var/log/syslog, отобрав события
+на своё усмотрение.
+
+#Посмотрим весь файл
+daniil@daniil-VirtualBox:~$ cat /var/log/syslog
+#Сделаем поиск строк, содержащих тег <info>
+daniil@daniil-VirtualBox:~$ cat /var/log/syslog | grep -i info 
+Dec  7 21:16:51 daniil-VirtualBox NetworkManager[542]: <info>  [1607365011.7868] manager: NetworkManager state is now CONNECTED_SITE
+Dec  7 21:16:52 daniil-VirtualBox NetworkManager[542]: <info>  [1607365012.1817] manager: NetworkManager state is now CONNECTED_GLOBAL
