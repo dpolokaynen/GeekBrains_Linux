@@ -1,0 +1,21 @@
+2. Запустить контейнер с Ubuntu.
+
+#Найдем контейнер Ubuntu
+daniil@daniil-VirtualBox:~$ sudo docker search ubuntu
+
+#Установим контейнер
+daniil@daniil-VirtualBox:~$ sudo docker pull ubuntu
+Using default tag: latest
+latest: Pulling from library/ubuntu
+da7391352a9b: Pull complete
+14428a6d4bcd: Pull complete
+2c2d948710f2: Pull complete
+Digest: sha256:c95a8e48bf88e9849f3e0f723d9f49fa12c5a00cfc6e60d2bc99d87555295e4c
+Status: Downloaded newer image for ubuntu:latest
+docker.io/library/ubuntu:latest
+
+#Проверим установку
+daniil@daniil-VirtualBox:~$ sudo docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+ubuntu        latest    f643c72bc252   13 days ago     72.9MB
+hello-world   latest    bf756fb1ae65   11 months ago   13.3kB
