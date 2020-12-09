@@ -1,0 +1,36 @@
+1. Подключить репозиторий с nginx любым удобным способом, установить nginx 
+и потом удалить nginx, используя утилиту dpkg.
+
+
+
+#Скачаем ключ к nginx и утсановим его
+daniil@daniil-VirtualBox:~$ curl -fsSL http://nginx.org/keys/
+nginx_signing.key | sudo apt-key add
+OK
+
+#Установим nginx через apt-add-repository
+daniil@daniil-VirtualBox:~$ sudo apt-add-repository ppa:nginx/stable
+This PPA contains the latest Stable Release version of the nginx web server software.
+.
+.
+.
+Чтение списков пакетов… Готово
+#Обновим apt
+daniil@daniil-VirtualBox:~$ sudo apt update
+
+#Список пакетов dpkg
+daniil@daniil-VirtualBox:~$ dpkg --get-selections | grep -v deinstall
+
+
+#Не нашел Nginx в списке пакетов, удалим vino с помощью dpkg
+daniil@daniil-VirtualBox:~$ sudo dpkg -P vino
+(Чтение базы данных … на данный момент установлено 193687 файлов и каталогов.)
+Удаляется vino (3.22.0-5ubuntu2.2) …
+Обрабатываются триггеры для libglib2.0-0:amd64 (2.64.3-1~ubuntu20.04.1) …
+Обрабатываются триггеры для gnome-menus (3.36.0-1ubuntu1) …
+Обрабатываются триггеры для desktop-file-utils (0.24-1ubuntu3) …
+Обрабатываются триггеры для mime-support (3.64ubuntu1) …
+
+
+
+
